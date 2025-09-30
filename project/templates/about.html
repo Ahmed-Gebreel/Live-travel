@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>live travel</title>
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+
+    <body>
+        <header>
+            <div class="back-img">
+                <nav class="topnav">
+                    <img src="/static/logo@2x.png">
+                    <div class="links">
+                        <a href="{{ url_for('home') }}">Home</a>
+                        <a href="{{ url_for('contact') }}">Contact</a>
+                        <a href="{{ url_for('about') }}">About</a>
+                        <a href="{{ url_for('packages') }}">Packages</a>
+                       {% if session.get('logged_in') %}
+            <a class="login" href="{{ url_for('logout') }}">Logout</a>
+        {% else %}
+            <a class="login" href="{{ url_for('login') }}">Login/Sign up</a>
+        {% endif %}
+                    </div>
+                </nav>
+                <div class="hero-content">
+                    <h1 class="hero">Established with a passion for exploration</h1>
+                </div>
+            </div>
+        </header>
+        <div class="stats">
+            <div class="stat">
+                <h2 class="counter" data-target="5500">0</h2>
+                <p>Happy Customers</p>
+            </div>
+            <div class="stat">
+                <h2 class="counter" data-target="180">0</h2>
+                <p>Destinations</p>
+            </div>
+            <div class="stat">
+                <h2 class="counter" data-target="633">0</h2>
+                <p>Bookings</p>
+            </div>
+        </div>
+        <div class="About-custom">
+            <div class="text">
+                <h3 style="color: #f9735b;">customized itineraries</h3>
+                <h2>We Believe That Travel is a Personal Journey</h2>
+                <p> Our team of seasoned travel experts brings years of experience and an in-depth understanding of the
+                    world’s most
+                    captivating destinations. We believe that travel is a personal journey, and we strive to provide
+                    personalized service
+                    that reflects your unique tastes and interests.</p>
+            </div>
+            <div class="ss">
+                <img src="/static/ab1.jpg">
+            </div>
+        </div>
+
+        <div class="About-us">
+            <div class="quadra">
+                <img src="/static/ab2.jpg" alt="Travel 1">
+                <img src="/static/ab3.jpg" alt="Travel 2">
+                <img src="/static/ab4.jpg" alt="Travel 3">
+                <img src="/static/ab5.jpg" alt="Travel 4">
+            </div>
+            <div class="text">
+                <h3 style="color: #f9735b;">About us</h3>
+                <h2>We Make Travel Accessible and Enjoyable</h2>
+                <p> Our mission is to make travel accessible and enjoyable for all. That's why we pride ourselves on
+                    being
+                    budget-friendly, without compromising on quality or experience. Our partnerships with trusted local
+                    guides and accommodations ensure that you receive the best value wherever you go.</p>
+            </div>
+
+        </div>
+        <section class="reviews-section">
+            <h2>Meet Our Team</h2>
+
+            <div class="reviews-container">
+                <div class="review-card">
+                    <img src="/static/human1.jpg" alt="Traveler 1">
+                    <h3>gehad ali</h3>
+                    <p class="review-text">
+                        "Co-founder"
+                    </p>
+                </div>
+
+                <div class="review-card">
+                    <img src="/static/human1.jpg" alt="Traveler 2">
+                    <h3>Ahmed khaled</h3>
+                    <p class="review-text">
+                        "Co-founder""
+                    </p>
+                </div>
+
+                <div class="review-card">
+                    <img src="/static/human1.jpg" alt="Traveler 3">
+                    <h3>Aser Ahmed</h3>
+                    <p class="review-text">
+                        "Expert Guide"
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+         <footer class="footer">
+            <div class="footer-container">
+                <!-- Left side -->
+                <div class="footer-logo">
+                    <h2><img src="/static/logo@2x.png">Live travel</h2>
+                    <p>Explore the world with us and make memories everywhere you go.</p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="{{ url_for('home') }}">Home</a></li>
+                        <li><a href="{{ url_for('packages') }}">Packages</a></li>
+                        <li><a href="{{ url_for('about') }}">About</a></li>
+                        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+
+                    </ul>
+                </div>
+
+                <!-- Social Media -->
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/174/174848.png" alt="Facebook"></a>
+                        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/174/174855.png"
+                                alt="Instagram"></a>
+                        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 Live travel. All Rights Reserved.</p>
+            </div>
+        </footer>
+        <script>
+            const counters = document.querySelectorAll(".counter");
+
+            counters.forEach(counter => {
+                counter.innerText = "0";
+
+                const updateCounter = () => {
+                    const target = +counter.getAttribute("data-target");
+                    const current = +counter.innerText;
+                    const increment = target / 100; // كل مرة نزود 1%
+
+                    if (current < target) {
+                        counter.innerText = `${Math.ceil(current + increment)}`;
+                        setTimeout(updateCounter, 20); // سرعة العد
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+
+                updateCounter();
+            });
+        </script>
+    </body>
+
+</html>

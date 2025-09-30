@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>live travel</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <div class="back-img">
+            <nav class="topnav">
+                <img src="/static/logo@2x.png">
+                <div class="links">
+                    <a href="{{ url_for('home') }}">Home</a>
+                    <a href="{{ url_for('contact') }}">Contact</a>
+                    <a href="{{ url_for('about') }}">About</a>
+                    <a href="{{ url_for('packages') }}">Packages</a>
+                    {% if session.get('logged_in') %}
+            <a class="login" href="{{ url_for('logout') }}">Logout</a>
+        {% else %}
+            <a class="login" href="{{ url_for('login') }}">Login/Sign up</a>
+        {% endif %}
+                </div>
+            </nav>
+            <div class="hero-content">
+                <h1 class="hero">Ready to Explore? Contact Us!</h1>
+
+            </div>
+        </div>
+    </header>
+    <div class="Contact-contain">
+        <form class="contact-form">
+
+            <div class="form-inputs">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Enter your name">
+
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email">
+
+                <label for="phone">Phone</label>
+                <input type="number" id="phone" placeholder="Enter your phone number">
+
+                <label for="message">Your Message</label>
+                <textarea id="message" rows="4" placeholder="Type your message"></textarea>
+
+                <button type="submit">Submit</button>
+            </div>
+            <div class="form-image">
+                <img src="/static/trip2.jpg" alt="Travel Image">
+            </div>
+        </form>
+    </div>
+    <div class="contact-way">
+        <div>
+            <span><img src="/static/adress.png" style="width: 40px;height: 40px;"></span>
+            <span>Adress</span>
+            <p>cairo-aswan</p>
+        </div>
+        <div>
+            <span><img src="/static/phone.png" style="width: 40px;height: 40px;"></span>
+            <span>Phone</span>
+            <p>01932364644</p>
+        </div>
+        <div>
+            <span><img src="/static/email.png" style="width: 40px;height: 40px;"></span>
+            <span>Email</span>
+            <p>livetravel@gmail.com</p>
+        </div>
+
+    </div>
+
+     <footer class="footer">
+            <div class="footer-container">
+                <!-- Left side -->
+                <div class="footer-logo">
+                    <h2><img src="/static/logo@2x.png">Live travel</h2>
+                    <p>Explore the world with us and make memories everywhere you go.</p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="{{ url_for('home') }}">Home</a></li>
+                        <li><a href="{{ url_for('packages') }}">Packages</a></li>
+                        <li><a href="{{ url_for('about') }}">About</a></li>
+                        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+
+                    </ul>
+                </div>
+
+                <!-- Social Media -->
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/174/174848.png" alt="Facebook"></a>
+                        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/174/174855.png"
+                                alt="Instagram"></a>
+                        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 Live travel. All Rights Reserved.</p>
+            </div>
+        </footer>
+</body>
+</html>

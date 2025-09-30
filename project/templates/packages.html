@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Travel</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <div class="back-img">
+            <nav class="topnav">
+                <img src="/static/logo@2x.png">
+                <div class="links">
+                    <a href="{{ url_for('home') }}">Home</a>
+                    <a href="{{ url_for('contact') }}">Contact</a>
+                    <a href="{{ url_for('about') }}">About</a>
+                    <a href="{{ url_for('packages') }}">Packages</a>
+                    {% if session.get('logged_in') %}
+            <a class="login" href="{{ url_for('logout') }}">Logout</a>
+        {% else %}
+            <a class="login" href="{{ url_for('login') }}">Login/Sign up</a>
+        {% endif %}
+                </div>
+            </nav>
+            <div class="hero-content">
+                <h1 class="hero">Live Travel</h1>
+                <p class="hero">We make your journeys easier and unforgettable.<br>
+                    Discover the best hotels and destinations with us.</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="pop">
+        <div class="container-packge">
+
+            <!-- London -->
+            <div class="packge-card">
+                <img src="/static/london.jpg">
+                <p class="hd">London</p>
+                <form action="{{ url_for('london') }}">
+                    <div class="overlay"><button>More Details</button></div>
+                </form>
+                <hr>
+                <p>$200/5 days</p>
+                <p>Breakfast & dinner</p>
+                <p>2 beds in room</p>
+            </div>
+
+            <!-- Spain -->
+            <div class="packge-card">
+                <img src="/static/spain.avif">
+                <p class="hd">Spain</p>
+                <form action="{{ url_for('spain') }}">
+                    <div class="overlay"><button>More Details</button></div>
+                </form>
+                <hr>
+                <p>$200/5 days</p>
+                <p>Breakfast & dinner</p>
+                <p>2 beds in room</p>
+            </div>
+
+            <!-- Egypt -->
+            <div class="packge-card">
+                <img src="/static/egypt..jpg">
+                <p class="hd">Egypt</p>
+                <form action="{{ url_for('egypt') }}">
+                    <div class="overlay"><button>More Details</button></div>
+                </form>
+                <hr>
+                <p>$200/5 days</p>
+                <p>Breakfast & dinner</p>
+                <p>2 beds in room</p>
+            </div>
+
+            <!-- Maldive -->
+            <div class="packge-card">
+                <img src="/static/maldiv.jpg">
+                <p class="hd">Maldive</p>
+                <form action="{{ url_for('maldive') }}">
+                    <div class="overlay"><button>More Details</button></div>
+                </form>
+                <hr>
+                <p>$200/5 days</p>
+                <p>Breakfast & dinner</p>
+                <p>2 beds in room</p>
+            </div>
+
+            <!-- Cancun -->
+            <div class="packge-card">
+                <img src="/static/Cancun.jpg">
+                <p class="hd">Cancun</p>
+                <form action="{{ url_for('cancun') }}">
+                    <div class="overlay"><button>More Details</button></div>
+                </form>
+                <hr>
+                <p>$200/5 days</p>
+                <p>Breakfast & dinner</p>
+                <p>2 beds in room</p>
+            </div>
+
+            <!-- Dubai -->
+            <div class="packge-card">
+                <img src="/static/dubai.jpg">
+                <p class="hd">Dubai</p>
+                <form action="{{ url_for('dubai') }}">
+                    <div class="overlay"><button>More Details</button></div>
+                </form>
+                <hr>
+                <p>$200/5 days</p>
+                <p>Breakfast & dinner</p>
+                <p>2 beds in room</p>
+            </div>
+
+            <!-- Tokyo -->
+            <div class="packge-card">
+                <img src="/static/tokyo.jpg">
+                <p class="hd">Tokyo</p>
+                <form action="{{ url_for('tokyo') }}">
+                    <div class="overlay"><button>More Details</button></div>
+                </form>
+                <hr>
+                <p>$200/5 days</p>
+                <p>Breakfast & dinner</p>
+                <p>2 beds in room</p>
+            </div>
+
+            <!-- Marrakech -->
+            <div class="packge-card">
+                <img src="/static/Marrakech.jpg">
+                <p class="hd">Marrakech</p>
+                <form action="{{ url_for('marrakech') }}">
+                    <div class="overlay"><button>More Details</button></div>
+                </form>
+                <hr>
+                <p>$200/5 days</p>
+                <p>Breakfast & dinner</p>
+                <p>2 beds in room</p>
+            </div>
+
+            <!-- Cape Town -->
+            <div class="packge-card">
+                <img src="/static/Cape Town.jpg">
+                <p class="hd">Cape Town</p>
+                <form action="{{ url_for('capetown') }}">
+                    <div class="overlay"><button>More Details</button></div>
+                </form>
+                <hr>
+                <p>$200/5 days</p>
+                <p>Breakfast & dinner</p>
+                <p>2 beds in room</p>
+            </div>
+
+            <!-- Zanzibar -->
+            <div class="packge-card">
+                <img src="/static/Zanzibar Island.jpg">
+                <p class="hd">Zanzibar Island</p>
+                <form action="{{ url_for('zanzibarisland') }}">
+                    <div class="overlay"><button>More Details</button></div>
+                </form>
+                <hr>
+                <p>$200/5 days</p>
+                <p>Breakfast & dinner</p>
+                <p>2 beds in room</p>
+            </div>
+
+            <!-- Thailand -->
+            <div class="packge-card">
+                <img src="/static/Thailand.jpg">
+                <p class="hd">Thailand</p>
+                <form action="{{ url_for('thailand') }}">
+                    <div class="overlay"><button>More Details</button></div>
+                </form>
+                <hr>
+                <p>$200/5 days</p>
+                <p>Breakfast & dinner</p>
+                <p>2 beds in room</p>
+            </div>
+
+            <!-- Rome -->
+            <div class="packge-card">
+                <img src="/static/Rome.avif">
+                <p class="hd">Rome</p>
+                <form action="{{ url_for('rome') }}">
+                    <div class="overlay"><button>More Details</button></div>
+                </form>
+                <hr>
+                <p>$200/5 days</p>
+                <p>Breakfast & dinner</p>
+                <p>2 beds in room</p>
+            </div>
+
+            <!-- Paris -->
+            <div class="packge-card">
+                <img src="/static/Paris.jpg">
+                <p class="hd">Paris</p>
+                <form action="{{ url_for('paris') }}">
+                    <div class="overlay"><button>More Details</button></div>
+                </form>
+                <hr>
+                <p>$200/5 days</p>
+                <p>Breakfast & dinner</p>
+                <p>2 beds in room</p>
+            </div>
+
+            <!-- Niagara Falls -->
+            <div class="packge-card">
+                <img src="/static/Niagara Falls.jpg">
+                <p class="hd">Niagara Falls</p>
+                <form action="{{ url_for('niagarafalls') }}">
+                    <div class="overlay"><button>More Details</button></div>
+                </form>
+                <hr>
+                <p>$200/5 days</p>
+                <p>Breakfast & dinner</p>
+                <p>2 beds in room</p>
+            </div>
+
+            <!-- New York -->
+            <div class="packge-card">
+                <img src="/static/New York.jpg">
+                <p class="hd">New York</p>
+                <form action="{{ url_for('newyourk') }}">
+                    <div class="overlay"><button>More Details</button></div>
+                </form>
+                <hr>
+                <p>$200/5 days</p>
+                <p>Breakfast & dinner</p>
+                <p>2 beds in room</p>
+            </div>
+
+            <!-- Rio -->
+            <div class="packge-card">
+                <img src="/static/Rio de Janeiro.jpeg">
+                <p class="hd">Rio de Janeiro</p>
+                <form action="{{ url_for('riodejaneiro') }}">
+                    <div class="overlay"><button>More Details</button></div>
+                </form>
+                <hr>
+                <p>$200/5 days</p>
+                <p>Breakfast & dinner</p>
+                <p>2 beds in room</p>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2><img src="/static/logo@2x.png"> Live Travel</h2>
+                <p>Explore the world with us and make memories everywhere you go.</p>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('packages') }}">Packages</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/174/174848.png" alt="Facebook"></a>
+                    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram"></a>
+                    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 Live Travel. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

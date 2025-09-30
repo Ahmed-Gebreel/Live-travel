@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>live travel</title>
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+
+    <body>
+        <header>
+            <div class="back-img">
+                <nav class="topnav">
+                    <img src="/static/logo@2x.png">
+                    <div class="links">
+                        <a href="{{ url_for('home') }}">Home</a>
+                        <a href="{{ url_for('contact') }}">Contact</a>
+                        <a href="{{ url_for('about') }}">About</a>
+                        <a href="{{ url_for('packages') }}">Packages</a>
+
+                        <a class="login" href="{{ url_for('sign') }}">Login/Sign up</a>
+                    </div>
+                </nav>
+                <div class="hero-content">
+                    <h1 class="hero">Live Travel</h1>
+                    <p class="hero">We make your journeys easier and unforgettable.<br>
+                        Discover the best hotels and destinations with us.</p>
+                </div>
+            </div>
+        </header>
+        <div class="form-container">
+            <h2>Book Your Trip ✈️</h2>
+            <form>
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Enter your name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" placeholder="+20 123 456 7890" required>
+
+                <label for="date">Travel Date</label>
+                <input type="date" id="date" required>
+
+                <label for="people">Number of People</label>
+                <select id="people" required>
+                    <option value="">Select</option>
+                    <option value="1">1 Person</option>
+                    <option value="2">2 People</option>
+                    <option value="3">3 People</option>
+                    <option value="4+">4 or more</option>
+                </select>
+
+                <label for="message">Special Requests</label>
+                <textarea id="message" rows="3" placeholder="Write here..."></textarea>
+
+                <button type="submit" class="">Submit Booking</button>
+            </form>
+        </div>
+
+ <footer class="footer">
+            <div class="footer-container">
+                <!-- Left side -->
+                <div class="footer-logo">
+                    <h2><img src="/static/logo@2x.png">Live travel</h2>
+                    <p>Explore the world with us and make memories everywhere you go.</p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="{{ url_for('home') }}">Home</a></li>
+                        <li><a href="{{ url_for('packages') }}">Packages</a></li>
+                        <li><a href="{{ url_for('about') }}">About</a></li>
+                        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Social Media -->
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/174/174848.png" alt="Facebook"></a>
+                        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/174/174855.png"
+                                alt="Instagram"></a>
+                        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 Live travel. All Rights Reserved.</p>
+            </div>
+        </footer>
+</body>
+
+</html>

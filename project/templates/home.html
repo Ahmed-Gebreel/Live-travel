@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>live travel</title>
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+
+    <body>
+        <header>
+            <div class="back-img">
+                <nav class="topnav">
+                    <img src="/static/logo@2x.png">
+                    <div class="links">
+                        <a href="{{ url_for('home') }}">Home</a>
+                        <a href="{{ url_for('contact') }}">Contact</a>
+                        <a href="{{ url_for('about') }}">About</a>
+                        <a href="{{ url_for('packages') }}">Packages</a>
+                        {% if session.get('logged_in') %}
+            <a class="login" href="{{ url_for('logout') }}">Logout</a>
+        {% else %}
+            <a class="login" href="{{ url_for('login') }}">Login/Sign up</a>
+        {% endif %}
+                    </div>
+                </nav>
+                <div class="hero-content">
+                    <h1 class="hero">Live Travel</h1>
+                    <p class="hero">We make your journeys easier and unforgettable.<br>
+                        Discover the best hotels and destinations with us.</p>
+                </div>
+            </div>
+        </header>
+        <div class="chose">
+            <div class="content">
+                <p class="ask">Why us</p>
+                <p class="ans">We offer the best prices and a simple, secure booking process. With 24/7 support and
+                    access to
+                    thousands of
+                    destinations worldwide, your journey starts here.</p>
+            </div>
+            <div class="cards-container">
+                <div class="card">
+                    <img src="/static/view3.jpg" alt="Spain">
+                    <div class="title">Best views</div>
+                </div>
+                <div class="card">
+                    <img src="/static/view2.jpg" alt="Spain">
+                    <div class="title">Best Prices</div>
+                </div>
+
+
+                <div class="card">
+                    <img src="/static/view.jpg" alt="Egypt">
+                    <div class="title">Best Places</div>
+                </div>
+            </div>
+        </div>
+        <div class="pop">
+            <div class="pac"> Popular Destinations </div>
+            <hr>
+            <div class="container">
+                <div class="packge">
+                    <img src="/static/london.jpg">
+                    <p class="hd">london</p>
+                    <form action="{{ url_for('london') }}">
+                        <div class="overlay"><button> More Details</button></div>
+                    </form>
+                    <hr>
+                    <p>$200/5 days</p>
+                    <p>breakfast & dinner</p>
+                    <p>2 bed in room</p>
+                </div>
+                <div class="packge">
+                    <img src="/static/spain.avif">
+                    <p class="hd">spain</p>
+                    <form action="{{ url_for('spain') }}">
+                        <div class="overlay"><button> More Details</button></div>
+                    </form>
+                    <hr>
+                    <p>$200/5 days</p>
+                    <p>breakfast & dinner</p>
+                    <p>2 bed in room</p>
+                </div>
+                <div class="packge">
+                    <img src="/static/egypt..jpg">
+                    <p class="hd">egypt</p>
+                    <form action="{{ url_for('egypt') }}">
+                        <div class="overlay"><button> More Details</button></div>
+                    </form>
+                    <hr>
+                    <p>$200/5 days</p>
+                    <p>breakfast & dinner</p>
+                    <p>2 bed in room</p>
+                </div>
+                <div class="packge">
+                    <img src="/static/maldiv.jpg">
+                    <p class="hd">maldive</p>
+                    <form action="{{ url_for('maldive') }}">
+                        <div class="overlay"><button> More Details</button></div>
+                    </form>
+                    <hr>
+                    <p>$200/5 days</p>
+                    <p>breakfast & dinner</p>
+                    <p>2 bed in room</p>
+                </div>
+                <div class="packge">
+                    <img src="/static/tokyo.jpg">
+                    <p class="hd">tokyo</p>
+                    <form action="{{ url_for('tokyo') }}">
+                        <div class="overlay"><button> More Details</button></div>
+                    </form>
+                    <hr>
+                    <p>$200/5 days</p>
+                    <p>breakfast & dinner</p>
+                    <p>2 bed in room</p>
+                </div>
+                <div class="packge">
+                    <img src="/static/dubai.jpg">
+                    <p class="hd">dubai</p>
+                    <form action="{{ url_for('dubai') }}">
+                        <div class="overlay"><button> More Details</button></div>
+                    </form>
+                    <hr>
+                    <p>$200/5 days</p>
+                    <p>breakfast & dinner</p>
+                    <p>2 bed in room</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="pac"> About Us </div>
+        <hr>
+        <div class="About">
+
+            <div class="text">
+                <h2>Your Journey, Our Passion</h2>
+                <p>We believe that travel is more than just visiting new places; it's about creating memories,
+                    experiencing diverse
+                    cultures, and discovering the wonders of the world. With years of experience in the travel industry,
+                    our dedicated team
+                    is committed to providing exceptional travel experiences tailored to your unique desires and needs
+                </p>
+            </div>
+            <div class="side">
+                <img src="/static/trip.jpeg">
+                <form action="{{ url_for('about') }}">
+                    <button type="submit">Learn More</button>
+                </form>
+            </div>
+        </div>
+        <div class="pac"> Our Reviews </div>
+        <hr>
+        <section class="reviews-section">
+            <h2>What Our Travelers Say</h2>
+
+            <div class="reviews-container">
+                <div class="review-card">
+                    <img src="/static/human1.jpg" alt="Traveler 1">
+                    <h3>Sarah Johnson</h3>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">
+                        "Amazing experience! The trip was perfectly organized and the guides were super friendly."
+                    </p>
+                </div>
+
+                <div class="review-card">
+                    <img src="/static/human1.jpg" alt="Traveler 2">
+                    <h3>Michael Lee</h3>
+                    <div class="stars">⭐⭐⭐⭐</div>
+                    <p class="review-text">
+                        "Great destinations and very professional service. Highly recommended!"
+                    </p>
+                </div>
+
+                <div class="review-card">
+                    <img src="/static/human1.jpg" alt="Traveler 3">
+                    <h3>Ahmed Khaled</h3>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">
+                        "Best vacation ever! Loved every moment of it and will book again next summer."
+                    </p>
+                </div>
+            </div>
+        </section>
+        <footer class="footer">
+            <div class="footer-container">
+                <!-- Left side -->
+                <div class="footer-logo">
+                    <h2><img src="/static/logo@2x.png">Live travel</h2>
+                    <p>Explore the world with us and make memories everywhere you go.</p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="{{ url_for('home') }}">Home</a></li>
+                        <li><a href="{{ url_for('packages') }}">Packages</a></li>
+                        <li><a href="{{ url_for('about') }}">About</a></li>
+                        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Social Media -->
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/174/174848.png" alt="Facebook"></a>
+                        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/174/174855.png"
+                                alt="Instagram"></a>
+                        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 Live travel. All Rights Reserved.</p>
+            </div>
+        </footer>
+    </body>
+
+</html>

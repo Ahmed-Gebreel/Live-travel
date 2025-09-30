@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Travel Portal - Login & Register</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+                min-height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+                overflow: hidden;
+                position: relative;
+            }
+
+            body::before {
+                content: '';
+                position: absolute;
+                width: 500px;
+                height: 500px;
+                background: radial-gradient(circle, #ebd409 0%, transparent 70%);
+                top: -200px;
+                right: -200px;
+                opacity: 0.1;
+                animation: float 8s ease-in-out infinite;
+            }
+
+            body::after {
+                content: '';
+                position: absolute;
+                width: 400px;
+                height: 400px;
+                background: radial-gradient(circle, #ebd409 0%, transparent 70%);
+                bottom: -150px;
+                left: -150px;
+                opacity: 0.1;
+                animation: float 6s ease-in-out infinite reverse;
+            }
+
+            @keyframes float {
+
+                0%,
+                100% {
+                    transform: translateY(0) scale(1);
+                }
+
+                50% {
+                    transform: translateY(-30px) scale(1.1);
+                }
+            }
+
+            .container {
+                background: rgba(255, 255, 255, 0.98);
+                border-radius: 30px;
+                box-shadow: 0 30px 80px rgba(235, 212, 9, 0.3);
+                width: 100%;
+                max-width: 900px;
+                display: flex;
+                overflow: hidden;
+                position: relative;
+                z-index: 1;
+                min-height: 550px;
+            }
+
+            .form-container {
+                flex: 1;
+                padding: 50px 45px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                position: relative;
+            }
+
+            .visual-side {
+                flex: 1;
+                background: linear-gradient(135deg, #ebd409 0%, #f5e04d 100%);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 50px;
+                color: #000;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .visual-side::before {
+                content: '✈';
+                font-size: 200px;
+                position: absolute;
+                opacity: 0.1;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) rotate(-15deg);
+            }
+
+            .logo {
+                font-size: 32px;
+                font-weight: bold;
+                margin-bottom: 10px;
+                color: #000;
+                z-index: 1;
+            }
+
+            .tagline {
+                font-size: 18px;
+                text-align: center;
+                opacity: 0.9;
+                z-index: 1;
+            }
+
+            .travel-icons {
+                margin-top: 40px;
+                font-size: 40px;
+                display: flex;
+                gap: 20px;
+                z-index: 1;
+            }
+
+            .travel-icons span {
+                animation: bounce 2s ease-in-out infinite;
+            }
+
+            .travel-icons span:nth-child(2) {
+                animation-delay: 0.2s;
+            }
+
+            .travel-icons span:nth-child(3) {
+                animation-delay: 0.4s;
+            }
+
+            @keyframes bounce {
+
+                0%,
+                100% {
+                    transform: translateY(0);
+                }
+
+                50% {
+                    transform: translateY(-10px);
+                }
+            }
+
+            h2 {
+                color: #000;
+                margin-bottom: 10px;
+                font-size: 32px;
+            }
+
+            .subtitle {
+                color: #666;
+                margin-bottom: 30px;
+                font-size: 14px;
+            }
+
+            .form-group {
+                margin-bottom: 20px;
+            }
+
+            label {
+                display: block;
+                margin-bottom: 8px;
+                color: #333;
+                font-weight: 500;
+                font-size: 14px;
+            }
+
+            input {
+                width: 100%;
+                padding: 14px 18px;
+                border: 2px solid #e0e0e0;
+                border-radius: 12px;
+                font-size: 15px;
+                transition: all 0.3s ease;
+                background: #fff;
+            }
+
+            input:focus {
+                outline: none;
+                border-color: #ebd409;
+                box-shadow: 0 0 0 4px rgba(235, 212, 9, 0.1);
+            }
+
+            .btn {
+                width: 100%;
+                padding: 16px;
+                background: linear-gradient(135deg, #ebd409 0%, #f5e04d 100%);
+                color: #000;
+                border: none;
+                border-radius: 12px;
+                font-size: 16px;
+                font-weight: bold;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                margin-top: 10px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+
+            .btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 25px rgba(235, 212, 9, 0.4);
+            }
+
+            .btn:active {
+                transform: translateY(0);
+            }
+
+            .toggle-form {
+                text-align: center;
+                margin-top: 25px;
+                color: #666;
+                font-size: 14px;
+            }
+
+            .toggle-form a {
+                color: #ebd409;
+                text-decoration: none;
+                font-weight: bold;
+                margin-left: 5px;
+                transition: color 0.3s ease;
+            }
+
+            .toggle-form a:hover {
+                color: #000;
+            }
+
+            .form-wrapper {
+                display: none;
+            }
+
+            .form-wrapper.active {
+                display: block;
+                animation: fadeIn 0.5s ease;
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .divider {
+                display: flex;
+                align-items: center;
+                margin: 25px 0;
+                color: #999;
+                font-size: 13px;
+            }
+
+            .divider::before,
+            .divider::after {
+                content: '';
+                flex: 1;
+                height: 1px;
+                background: #e0e0e0;
+            }
+
+            .divider span {
+                padding: 0 15px;
+            }
+
+            .social-login {
+                display: flex;
+                gap: 10px;
+            }
+
+            .social-btn {
+                flex: 1;
+                padding: 12px;
+                border: 2px solid #e0e0e0;
+                background: #fff;
+                border-radius: 10px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                font-size: 14px;
+                font-weight: 600;
+                color: #333;
+            }
+
+            .social-btn:hover {
+                border-color: #ebd409;
+                background: #fffef5;
+            }
+
+            @media (max-width: 768px) {
+                .container {
+                    flex-direction: column;
+                    max-width: 450px;
+                }
+
+                .visual-side {
+                    padding: 30px;
+                    min-height: 200px;
+                }
+
+                .form-container {
+                    padding: 35px 25px;
+                }
+
+                .logo {
+                    font-size: 24px;
+                }
+
+                h2 {
+                    font-size: 26px;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="form-container">
+                <!-- Login Form -->
+                <div id="loginForm" class="form-wrapper active">
+
+                    <h2>Welcome Back</h2>
+                    <p class="subtitle">Continue your journey with us</p>
+
+                   <form action="{{ url_for('login') }}" method="POST">
+
+                        <div class="form-group">
+                            <label for="login-email">Email Address</label>
+                            <input type="email" id="login-email" name="login-email" placeholder="Enter your email"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="login-password">Password</label>
+                            <input type="password" id="login-password" name="login-password"
+                                placeholder="Enter your password" required>
+                        </div>
+
+                        <button type="submit" class="btn">Login</button>
+                    </form>
+
+
+
+                    <div class="toggle-form">
+                        Don't have an account?<a href="#" onclick="toggleForm('register'); return false;">Sign Up</a>
+                    </div>
+                </div>
+
+                <!-- Register Form -->
+                <div id="registerForm" class="form-wrapper">
+                    <h2>Join Us</h2>
+                    <p class="subtitle">Start your adventure today</p>
+
+                    <form action="{{ url_for('register') }}" method="POST">
+
+                        <div class="form-group">
+                            <label for="register-name">Full Name</label>
+                            <input type="text" id="register-name" name="register-name"
+                                placeholder="Enter your full name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="register-email">Email Address</label>
+                            <input type="email" id="register-email" name="register-email" placeholder="Enter your email"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="register-password">Password</label>
+                            <input type="password" id="register-password" name="register-password"
+                                placeholder="Create a password" required>
+                        </div>
+
+                        <button type="submit" class="btn">Create Account</button>
+                    </form>
+
+                    <div class="divider">
+                        <span>OR</span>
+                    </div>
+
+                    <div class="social-login">
+                        <button class="social-btn">Google</button>
+                        <button class="social-btn">Facebook</button>
+                    </div>
+
+                    <div class="toggle-form">
+                        Already have an account?<a href="#" onclick="toggleForm('login'); return false;">Sign In</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="visual-side">
+                <div class="logo">Live Travel</div>
+                <p class="tagline">Explore the World</p>
+                <div class="travel-icons">
+                    <span>✈️</span>
+                    <span>🌍</span>
+                    <span>🏖️</span>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function toggleForm(formType) {
+                const loginForm = document.getElementById('loginForm');
+                const registerForm = document.getElementById('registerForm');
+
+                if (formType === 'register') {
+                    loginForm.classList.remove('active');
+                    registerForm.classList.add('active');
+                } else {
+                    registerForm.classList.remove('active');
+                    loginForm.classList.add('active');
+                }
+            }
+        </script>
+    </body>
+
+</html>
